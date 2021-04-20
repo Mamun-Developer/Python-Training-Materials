@@ -2,16 +2,26 @@ class vehicle:
     def __init__(self, wheel, totalSeat):
         self.wheel = wheel
         self.totalSeat = totalSeat
+        self.locked = False
+        self.runForward = False
+        self.runBackward = False
+        self.speed = 0
 
     def goForwad(self, speed):
-        self.runForward = True
-        self.runBackward = False
-        self.speed = speed
+        if self.isLocked() == False:
+            self.runForward = True
+            self.runBackward = False
+            self.speed = speed
+        else:
+            self.unauthorizedAccess()
 
     def goBackward(self, speed):
-        self.runForward = False
-        self.runBackward = True
-        self.speed = speed
+        if self.isLocked() == False:
+            self.runForward = False
+            self.runBackward = True
+            self.speed = speed
+        else:
+            self.unauthorizedAccess()
 
     def brake(self):
         self.runForward = False
@@ -22,9 +32,17 @@ class vehicle:
         self.locked = True
         self.password = password
 
+    def isLocked(self):
+        return self.locked
+
     def unlockVehicle(self, password):
         if self.password == password:
             self.locked = False
+
+    def unauthorizedAccess(self):
+        import time
+        print("Unauthorized access detected. Please wait 10 sec before next try")
+        time.sleep(2)
 
     def getWheels(self):
         return self.wheel
@@ -45,3 +63,6 @@ class vehicle:
             return "Backward"
         else:
             return "Stalled"
+
+    def horn(self):
+        pass
