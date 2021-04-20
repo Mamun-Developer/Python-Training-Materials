@@ -3,6 +3,8 @@ import time
 # 2. Run loop and input all number into list
 # 3. Run look and sum all number
 # 4. Print the result
+def thisIsthechange():
+    pass
 
 def numberN(message):
     '''

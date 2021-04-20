@@ -7,15 +7,6 @@
 # 6. Bullet size = 9mm
 import time
 
-
-def test():
-    pass
-
-
-def test2():
-    pass
-
-
 class gun:
     def __init__(self, magazineLimit=6, perTrigerOutput=1, reloadTime=3,
                  autoReload=True, bulletSize="9mm", bulletsInTheBox=20):
