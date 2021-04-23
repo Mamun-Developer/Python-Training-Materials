@@ -1,31 +1,32 @@
-class vicle:
+class amarVehicle:
     def __init__(self, wheel, totalSeat):
         self.wheel = wheel
         self.totalSeat = totalSeat
-        self.locked=False
-        self.runbackword=False
-        self.runForward=False
-        self.speed=0
+        self.locked = False
+        self.runbackword = False
+        self.runForward = False
+        self.speed = 0
 
     def goForward(self, speed):
-        if isLocked() == False:
+        if self.isLocked() == False:
             self.runbackword = False
             self.runForward = True
-            self.speed =speed
+            self.speed = speed
         else:
             self.unauthorizedAcces()
 
-    def goBackward(self):
-        if isLocked() == False:
+    def goBackward(self, speed=5):
+        if self.isLocked() == False:
             self.runForward = False
             self.runbackword = True
             self.speed = speed
         else:
             self.unauthorizedAcces()
+
     def Break(self):
         self.runbackword = False
         self.runForward = False
-        self.speed=0
+        self.speed = 0
 
     def lockVicle(self, password):
         self.locked = True
@@ -35,8 +36,8 @@ class vicle:
         return self.lockVicle()
 
     def unlockVicle(self, password):
-        self.password==password
-        self.locked=False
+        self.password == password
+        self.locked = False
 
     def unauthorizedAcces(self):
         import time
@@ -48,11 +49,16 @@ class vicle:
 
     def getSeat(self):
         return self.getSeat()
+
     def isRunning(self):
-        if speed == 0:
+        if self.speed == 0:
             return False
         else:
             return True
+
     def horn(self):
         pass
 
+
+ss = amarVehicle(2, 4)
+ss.lockVicle(3)
